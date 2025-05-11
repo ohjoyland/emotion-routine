@@ -5,14 +5,24 @@ function App() {
   const [score, setScore] = useState(5);
   const [emotion, setEmotion] = useState('');
   const [note, setNote] = useState('');
+  const [log, setLog] = useState(null);
 
   const handleSubmit = () => {
-    alert(`감정 점수: ${score}\n감정: ${emotion}\n메모: ${note}`);
+    setLog({
+      score,
+      emotion,
+      note,
+      time: new Date().toLocaleString()
+    });
+
+    setEmotion('');
+    setNote('');
   };
 
   return (
     <div className="container">
       <h1>오늘의 감정루틴</h1>
+
       <label>오늘의 감정 점수 (1~10)</label>
       <select value={score} onChange={e => setScore(e.target.value)}>
         {[...Array(10)].map((_, i) => (
@@ -36,6 +46,16 @@ function App() {
       />
 
       <button onClick={handleSubmit}>기록하기</button>
+
+      {log && (
+        <div className="log-card">
+          <h3>📝 기록된 감정</h3>
+          <p><strong>시간:</strong> {log.time}</p>
+          <p><strong>감정 점수:</strong> {log.score}</p>
+          <p><strong>감정:</strong> {log.emotion}</p>
+          <p><strong>회고:</strong> {log.note}</p>
+        </div>
+      )}
     </div>
   );
 }

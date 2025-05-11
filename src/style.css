@@ -37,3 +37,13 @@ button {
 button:hover {
   background-color: #f48bbd;
 }
+
+
+.log-card {
+  background: #fff9f9;
+  border: 1px solid #ffe0e0;
+  padding: 16px;
+  margin-top: 24px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
