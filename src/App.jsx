@@ -1,6 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  LineElement,
+  CategoryScale,
+  LinearScale,
+  PointElement
+} from 'chart.js';
 import './style.css';
+
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement);
 
 function App() {
   const [score, setScore] = useState('10');
@@ -18,6 +28,7 @@ function App() {
   const handleSubmit = () => {
     const newEntry = {
       time: new Date().toLocaleString(),
+      date: new Date().toISOString().split('T')[0],
       score,
       emotion,
       reason
@@ -27,9 +38,23 @@ function App() {
     setReason('');
   };
 
+  const data = {
+    labels: entries.map(e => e.date).reverse(),
+    datasets: [
+      {
+        label: '감정 점수 변화',
+        data: entries.map(e => e.score).reverse(),
+        fill: false,
+        borderColor: '#e91e63',
+        tension: 0.1
+      }
+    ]
+  };
+
   return (
     <div className="container">
       <h1>오늘의 감정루틴</h1>
+
       <label>오늘의 감정 점수 (1~10)</label>
       <select value={score} onChange={(e) => setScore(e.target.value)}>
         {Array.from({ length: 10 }, (_, i) => i + 1).map(n => (
@@ -54,17 +79,16 @@ function App() {
 
       <button onClick={handleSubmit}>기록하기</button>
 
-      <div className="log-section">
-        {entries.map((entry, index) => (
-          <div key={index} className="log-entry">
-            <span>📔 기록된 감정</span>
-            <p><strong>시간:</strong> {entry.time}</p>
-            <p><strong>감정 점수:</strong> {entry.score}</p>
-            <p><strong>감정:</strong> {entry.emotion}</p>
-            <p><strong>회고:</strong> {entry.reason}</p>
-          </div>
-        ))}
-      </div>
+      <Line data={data} />
+
+      {entries.map((entry, index) => (
+        <div key={index} className="log-entry">
+          <p><strong>날짜:</strong> {entry.date}</p>
+          <p><strong>점수:</strong> {entry.score}</p>
+          <p><strong>감정:</strong> {entry.emotion}</p>
+          <p><strong>회고:</strong> {entry.reason}</p>
+        </div>
+      ))}
     </div>
   );
 }
