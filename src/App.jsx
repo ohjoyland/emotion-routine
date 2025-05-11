@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './style.css';
 
 export default function App() {
   const [score, setScore] = useState(5);
