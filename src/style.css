@@ -1,23 +1,39 @@
 body {
-  font-family: sans-serif;
-  background: #fefefe;
-  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  color: #333;
 }
 .container {
+  background-color: white;
   max-width: 400px;
-  margin: auto;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+h1 {
+  color: #ff69b4;
 }
 label {
   display: block;
-  margin-top: 1rem;
+  margin: 10px 0 4px;
+  font-weight: bold;
 }
 input, select, textarea {
   width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.5rem;
-  font-size: 1rem;
+  padding: 8px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
+  background-color: #f9b5d0;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #f48bbd;
 }
