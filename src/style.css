@@ -1,60 +1,54 @@
-
 body {
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to right, #fceabb, #f8b500);
+  background: linear-gradient(to right, #ffe0ec, #f9f5ff);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
   margin: 0;
-  padding: 0;
 }
 
 .container {
-  max-width: 500px;
   background: white;
-  margin: 50px auto;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  width: 90%;
+  max-width: 500px;
 }
 
 h1 {
-  color: #e91e63;
+  color: #f25484;
   text-align: center;
-  margin-bottom: 1em;
-}
-
-label {
-  font-weight: bold;
-  margin-top: 1em;
-  display: block;
 }
 
 input, select, textarea {
   width: 100%;
+  margin-top: 8px;
   padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
+  font-size: 1rem;
 }
 
 button {
-  width: 100%;
-  padding: 12px;
-  background: #e91e63;
+  background-color: #f25484;
   color: white;
   border: none;
+  padding: 12px;
+  margin-top: 12px;
+  width: 100%;
   border-radius: 8px;
-  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
 }
 
-button:hover {
-  background: #d81b60;
+.record-card {
+  background: #fff0f5;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 16px;
 }
 
-.log-entry {
-  background: #fff3f7;
-  border-left: 5px solid #e91e63;
-  padding: 1em;
-  margin-top: 1em;
-  border-radius: 10px;
+.graph {
+  margin-top: 30px;
 }
